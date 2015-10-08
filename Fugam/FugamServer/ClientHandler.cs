@@ -10,7 +10,7 @@ namespace FugamServer
     class ClientHandler
     {
         private TcpClient _client;
-        public int id { get; }
+        public int Id { get; }
 
         public TcpClient Client => _client;
 
@@ -18,7 +18,7 @@ namespace FugamServer
         {
             this._client = client;
             id++;
-            this.id = id;
+            this.Id = id;
         }
     }
 }
