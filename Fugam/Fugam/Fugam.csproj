@@ -46,18 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FugamClientForm.cs">
+    <Compile Include="Control\GameStateManager.cs" />
+    <Compile Include="Model\GameState.cs" />
+    <Compile Include="View\FugamClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FugamClientForm.Designer.cs">
+    <Compile Include="View\FugamClientForm.Designer.cs">
       <DependentUpon>FugamClientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainPanel.cs">
+    <Compile Include="View\MainPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FugamClientForm.resx">
+    <EmbeddedResource Include="View\FugamClientForm.resx">
       <DependentUpon>FugamClientForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
