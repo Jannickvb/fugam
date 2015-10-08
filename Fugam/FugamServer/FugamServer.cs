@@ -14,6 +14,7 @@ namespace FugamServer
     {
         static void Main(string[] args)
         {
+            new FugamServer(Util.GetLocalIP(), Util.Port);
         }
 
         private TcpListener _server;

@@ -43,11 +43,20 @@ namespace FugamServer
             while (ClientsConnected())
             {
                 
-            }   
+            }
+
+            Console.WriteLine("Game: {0} closed{1}",GetHashCode(),"");
         }
 
         private bool ClientsConnected()
         {
+            foreach (ClientHandler client in _clients)
+            {
+                if (!client.Client.Connected)
+                {
+                    return false;
+                }
+            }
             return true;
         }
     }
