@@ -36,14 +36,12 @@ namespace FugamServer
             Console.WriteLine("Server start: {0}", DateTime.Now);
             Console.WriteLine("Server Hashcode: {0}", this.GetHashCode());
 
-            bool running = true;
-
             int currentClients = 0;
             GameHandler game = new GameHandler(this);
             Console.WriteLine("Game start: {0}", DateTime.Now);
             Console.WriteLine("Game Hashcode: {0}", game.GetHashCode());
 
-            while (running)
+            while (true)
             {
                 TcpClient client = _server.AcceptTcpClient();
                 Console.WriteLine("Client connected: {0}Added to {1} game{2}",client.GetHashCode(),"\n"+game.GetHashCode(),"");

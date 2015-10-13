@@ -12,7 +12,7 @@ namespace FugamServer
     {
         private FugamServer _server;
         private Thread _gameThread;
-        private ClientHandler[] _clients;
+        private readonly ClientHandler[] _clients;
 
         public GameHandler(FugamServer server)
         {
@@ -47,7 +47,7 @@ namespace FugamServer
 
             Console.WriteLine("Game: {0} closed{1}",GetHashCode(),"");
         }
-
+        
         private bool ClientsConnected()
         {
             foreach (ClientHandler client in _clients)

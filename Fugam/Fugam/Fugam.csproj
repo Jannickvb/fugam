@@ -47,13 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\GameStateManager.cs" />
+    <Compile Include="Model\BeginState.cs" />
     <Compile Include="Model\GameState.cs" />
+    <Compile Include="Model\Level1.cs" />
     <Compile Include="View\FugamClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\FugamClientForm.Designer.cs">
       <DependentUpon>FugamClientForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\GEngine.cs" />
     <Compile Include="View\MainPanel.cs">
       <SubType>Component</SubType>
     </Compile>
