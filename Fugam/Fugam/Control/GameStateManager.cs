@@ -49,15 +49,7 @@ namespace Fugam.Control
 
         public void SetState(State s)
         {
-            switch (s)
-            {
-                case State.Begin:
-                    CurrentState = _GameStateList.ElementAt(0);
-                    break;
-                case State.Level1:
-                    CurrentState = _GameStateList.ElementAt(1);
-                    break;
-            }
+            CurrentState = _GameStateList.ElementAt((int) s);
             CurrentState.init();
         }
     }
