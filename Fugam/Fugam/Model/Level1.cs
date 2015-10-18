@@ -6,11 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fugam.Control;
-
+using FugamUtil;
 namespace Fugam.Model
 {
     class Level1 : GameState
     {
+        private double _x = 0;
         public Level1(GameStateManager gsm) : base(gsm)
         {
             
@@ -44,12 +45,12 @@ namespace Fugam.Model
 
         public override void update()
         {
-            
+            _x = (double)ServerIO.Recieve(gsm.Client.GetStream());
         }
 
         public override void draw(Graphics g)
         {
-            g.FillRectangle(new SolidBrush(Color.Aqua), 50, 50, 100, 100);
+            g.FillRectangle(new SolidBrush(Color.Aqua), (int)_x, 50, 100, 100);
         }
     }
 }

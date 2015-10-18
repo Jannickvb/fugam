@@ -31,7 +31,9 @@ namespace Fugam.Model
             switch (k)
             {
                 case Keys.Enter:
+                    gsm.ConnectServer();
                     gsm.SetState(State.Level1);
+                    
                     break;
             }
         }
@@ -43,7 +45,7 @@ namespace Fugam.Model
 
         public override void update()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Begin state!!");
         }
 
         public override void draw(Graphics g)

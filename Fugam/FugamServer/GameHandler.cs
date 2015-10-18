@@ -5,6 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using FugamUtil;
 
 namespace FugamServer
 {
@@ -40,9 +41,18 @@ namespace FugamServer
         //game logic
         private void Game()
         {
+            //foreach (ClientHandler client in _clients)
+            //{
+            //    ServerIO.Send(client.Client.GetStream(),"Hello");
+            //}
+            double x = -10.0;
             while (ClientsConnected())
             {
-                
+                foreach (ClientHandler client in _clients)
+                {
+                    ServerIO.Send(client.Client.GetStream(),x);
+                    x += 0.001;
+                }
             }
 
             Console.WriteLine("Game: {0} closed{1}",GetHashCode(),"");
