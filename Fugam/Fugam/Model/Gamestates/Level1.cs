@@ -10,6 +10,8 @@ using Fugam.Levels;
 using Fugam.Model.Drawable;
 using FugamUtil;
 using FugamUtil.Packets.SubPackets;
+using Fugam.Levels.Tile;
+using FugamUtil.Packets;
 
 namespace Fugam.Model
 {
@@ -79,8 +81,14 @@ namespace Fugam.Model
 
         public override void ReceivePacketLevel(PacketLevel pl)
         {
-            _level = LevelIO.GetLevel(pl.NewLevelId);
+            _level = new Level(new TileMap(LevelIO.GetLevel(pl.NewLevelId), false));
             ServerIO.Send(gsm.Client.GetStream(),new PacketLevelRespone(gsm.ServerClientID,true));
+        }
+
+        public override void ReceivePacket(Packet packet)
+        {
+            Console.WriteLine("Id in gamestate: " + packet.ClientId);
+            gsm.ServerClientID = packet.ClientId;
         }
 
         public override void ResponePacketOtherPlayerPosition(PacketPlayerPosition ppp)
@@ -97,6 +105,8 @@ namespace Fugam.Model
 
         public override void ReceivePacketPlayers(PacketPlayers pop)
         {
+            Console.WriteLine("ID: "+gsm.ServerClientID);
+            Console.WriteLine("Tile map: "+_level.TileMap);
             player = new YourPlayer(gsm.ServerClientID,_level.TileMap);
             _otherPlayers = new Player[pop.IdPlayers.Count-1];
             for (int i = 0; i < _otherPlayers.Length; i++)

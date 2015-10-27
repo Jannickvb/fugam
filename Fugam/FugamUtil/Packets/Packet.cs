@@ -16,8 +16,11 @@ namespace FugamUtil.Packets
         {
             ClientId = id;
         }
+
         public virtual void HandleClientSide(IClient clientInterface)
-        { }
+        {
+            clientInterface.ReceivePacket(this);
+        }
 
         public virtual void HandleServerSide(IServer serverInterface)
         { }

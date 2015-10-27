@@ -28,10 +28,8 @@ namespace Fugam.Model
         public virtual void ReceivePacketLevel(PacketLevel pl)
         { }
 
-        public void ReceivePacket(Packet packet)
-        {
-            gsm.ServerClientID = packet.ClientId;
-        }
+        public virtual void ReceivePacket(Packet packet)
+        { }
         public virtual void ResponePacketOtherPlayerPosition(PacketPlayerPosition ppp)
         { }
         public virtual void ReceivePacketPlayers(PacketPlayers pop)
