@@ -10,11 +10,11 @@ namespace FugamUtil.Packets.SubPackets
     [Serializable]
     public class PacketLevel : Packet
     {
-        public Level NewLevel { get; }
+        public string NewLevelId { get; }
 
-        public PacketLevel(Level level)
+        public PacketLevel(string levelid)
         {
-            NewLevel = level;
+            NewLevelId = levelid;
         }
 
         public override void HandleClientSide(IClient clientInterface)
