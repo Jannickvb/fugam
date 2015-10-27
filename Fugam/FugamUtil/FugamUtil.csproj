@@ -43,20 +43,15 @@
   <ItemGroup>
     <Compile Include="Interface\IClient.cs" />
     <Compile Include="Interface\IServer.cs" />
-    <Compile Include="Levels\IDraw.cs" />
-    <Compile Include="Levels\Level.cs" />
-    <Compile Include="Levels\Objects\Obstacle.cs" />
-    <Compile Include="Levels\Objects\Trigger.cs" />
     <Compile Include="Packets\Packet.cs" />
     <Compile Include="Packets\SubPackets\PacketLevel.cs" />
     <Compile Include="Packets\SubPackets\PacketLevelReceived.cs" />
     <Compile Include="ServerIO.cs" />
-    <Compile Include="Levels\Status.cs" />
-    <Compile Include="Tile\Tile.cs" />
     <Compile Include="Tile\TileMap.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

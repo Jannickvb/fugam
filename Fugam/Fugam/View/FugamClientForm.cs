@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fugam.Control;
 using Fugam.Model;
+using Fugam.Levels;
 
 namespace Fugam
 {
@@ -22,6 +23,8 @@ namespace Fugam
             _gsm = new GameStateManager(mainPanel.Width,mainPanel.Height);
             Graphics g = mainPanel.CreateGraphics();
             _gsm.StartGame(g);
+            LevelIO.SetPath();
+            LevelIO.GetLevel("Level_ID=1");
         }
 
         private void FugamClientForm_KeyDown(object sender, KeyEventArgs e)

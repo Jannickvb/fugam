@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\GameStateManager.cs" />
+    <Compile Include="Levels\IDraw.cs" />
+    <Compile Include="Levels\Level.cs" />
+    <Compile Include="Levels\LevelIO.cs" />
     <Compile Include="Model\Drawable\Entity.cs" />
     <Compile Include="Model\Drawable\Player.cs" />
     <Compile Include="Model\Gamestates\BeginState.cs" />
@@ -56,6 +59,10 @@
     <Compile Include="Control\ServerConnection.cs" />
     <Compile Include="Model\InputHandling\InputHandler.cs" />
     <Compile Include="Model\InputHandling\Keys.cs" />
+    <Compile Include="Levels\Tile\Obstacle.cs" />
+    <Compile Include="Levels\Tile\Tile.cs" />
+    <Compile Include="Levels\Tile\TileMap.cs" />
+    <Compile Include="Levels\Tile\Trigger.cs" />
     <Compile Include="View\FugamClientForm.cs">
       <SubType>Form</SubType>
     </Compile>

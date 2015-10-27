@@ -15,8 +15,8 @@ namespace Fugam.Levels.Tile
         public int Y { get; }
         public Brush Brush { get; set; }
         private readonly Pen _pen;
-        public const int TileWidth = 16;
-        public const int TileHeight = 16;
+        public const int TileWidth = 32;
+        public const int TileHeight = 32;
         public Tile(bool solid, int x, int y)
         {
             Solid = solid;

@@ -16,7 +16,6 @@ namespace FugamServer
         private FugamServer _server;
         private Thread _gameThread;
         private readonly ClientHandler[] _clients;
-        private Level _level;
 
         public GameHandler(FugamServer server)
         {
@@ -31,7 +30,6 @@ namespace FugamServer
 
         public void StartGame()
         {
-            _level = new Level();
             _gameThread = new Thread(new ThreadStart(Game));
             _gameThread.Start();
         }
@@ -47,7 +45,7 @@ namespace FugamServer
         {
             foreach (ClientHandler client in _clients)
             {
-                ServerIO.Send(client.Client.GetStream(), new PacketLevel(_level));
+                ServerIO.Send(client.Client.GetStream(), new PacketLevel("Level_ID=1"));
                 ServerIO.Recieve(client.Client.GetStream()).HandleServerSide(this);
             }
 
