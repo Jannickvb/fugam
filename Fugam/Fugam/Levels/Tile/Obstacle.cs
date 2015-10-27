@@ -1,8 +1,7 @@
 ﻿namespace Fugam.Levels.Tile
 {
-    public class Obstacle : Tile
+    public class Obstacle
     {
-        public Obstacle(int x, int y) : base(true, x, y)
-        { }
+        
     }
 }

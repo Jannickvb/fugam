@@ -1,16 +1,5 @@
-[header]
-width=16
-height=16
-tilewidth=32
-tileheight=32
-orientation=orthogonal
-
-[tilesets]
-tileset=../Pictures/Zpa4ZvlsD101dtshjhhSJW6Ga0qa8o4mIiJLsGH0XX9A6Sr1r3Z4AtKbetcLkBSz_old_double.png,32,32,0,0
-
-[layer]
-type=Tilelaag 1
-data=
+16
+16
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 1,1,1,26,27,35,28,29,35,119,37,1,1,1,1,1,
 1,1,1,105,106,89,89,89,89,89,56,1,1,1,1,1,

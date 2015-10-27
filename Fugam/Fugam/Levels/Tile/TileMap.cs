@@ -1,23 +1,60 @@
 ﻿using System.Drawing;
+using System.Windows.Forms;
 
 namespace Fugam.Levels.Tile
 {
-    public class TileMap : IDraw
+    public class TileMap
     {
-        public Levels.Tile.Tile[,] Tiles { get; }
+        private int[,] _tileIds;
+        private Tile[,] _tiles;
+        public int ArrayWidth { get; }
+        public int ArrayHeight { get; }
+        public bool IsCollisonMap { get; }
 
-        public TileMap()
+        public TileMap(int[,] tileIds,bool collisonMap,Bitmap tileset)
         {
-            Tiles = new Tile[16,16];
+            _tileIds = tileIds;
+            ArrayWidth = _tileIds.GetLength(0);
+            ArrayHeight = _tileIds.GetLength(1);
+            _tiles = new Tile[ArrayWidth,ArrayHeight];
+            IsCollisonMap = collisonMap;
+            LoadTiles(ArrayWidth,ArrayHeight,tileset);
         }
 
-        public void DrawTile(Graphics g)
+        private void LoadTiles(int width, int height,Bitmap tileset)
         {
-            for(int y = 0; y < 16; y++)
+            for (int i = 0; i < height; i++)
             {
-                for (int x = 0; x < 16; x++)
+                for (int k = 0; k < width; k++)
                 {
-                    Tiles[y,x].DrawTile(g);
+                    if (IsCollisonMap)
+                    {
+                        //bool solid;
+                        //if (_tileIds[k][i] != 0)
+                        //{
+                        //    solid = true;
+                        //}
+                        //else
+                        //{
+                        //    solid = false;
+                        //}
+                        _tiles[k, i] = new Tile(_tileIds[k,i] != 0, i*Tile.Size, i*Tile.Size, _tileIds[k,i]);
+                    }
+                    else
+                    {
+                        _tiles[k, i] = new Tile(false, i * Tile.Size, i * Tile.Size, _tileIds[k,i]);
+                    }
+                }
+            }
+        }
+
+        public void DrawTiles(Graphics g)
+        {
+            for (int i = 0; i < ArrayHeight; i++)
+            {
+                for (int k = 0; k < ArrayWidth; k++)
+                {
+                    _tiles[k,i].DrawTile(g);
                 }
             }
         }

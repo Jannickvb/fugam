@@ -4,28 +4,18 @@ using Fugam.Levels.Tile;
 
 namespace Fugam.Levels
 {
-    public class Level : IDraw
+    public class Level
     {
         public TileMap TileMap { get; }
 
-        public Level()
+        public Level(TileMap tm)
         {
-            TileMap = new TileMap();
+            TileMap = tm;
         }
 
-        public bool AddTile(Tile.Tile tile)
+        public void Draw(Graphics g)
         {
-            if ((tile.X >= 0 && tile.X < 16) && (tile.Y >= 0 && tile.Y < 16))
-            {
-                TileMap.Tiles[tile.Y, tile.X] = tile;
-                return true;
-            }
-            return false;
-        }
-
-        public void DrawTile(Graphics g)
-        {
-            TileMap.DrawTile(g);
+            TileMap.DrawTiles(g);
         }
     }
 }

@@ -56,7 +56,7 @@ namespace Fugam.Model
         {
             if (_level != null)
             {
-                _level.DrawTile(g);
+                _level.Draw(g);
             }
         }
 

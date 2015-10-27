@@ -47,7 +47,6 @@
     <Compile Include="Packets\SubPackets\PacketLevel.cs" />
     <Compile Include="Packets\SubPackets\PacketLevelReceived.cs" />
     <Compile Include="ServerIO.cs" />
-    <Compile Include="Tile\TileMap.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
