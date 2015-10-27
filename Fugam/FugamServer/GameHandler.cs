@@ -30,6 +30,8 @@ namespace FugamServer
 
         public void StartGame()
         {
+            Console.WriteLine("Game start: {0}", DateTime.Now);
+            Console.WriteLine("Game Hashcode: {0}",GetHashCode());
             Game();
         }
 
@@ -45,29 +47,34 @@ namespace FugamServer
         //game logic
         private void Game()
         {
+            Console.WriteLine("ID send");
             foreach (ClientHandler client in _clients)
             {
                 ServerIO.Send(client.Client.GetStream(),new Packet(client.GetHashCode()));
             }
-            List<int> ids = _clients.Select(client => client.GetHashCode()).ToList();
-
-            foreach (ClientHandler client in _clients)
-            {
-                ServerIO.Send(client.Client.GetStream(),new PacketPlayers(client.GetHashCode()) {IdPlayers = ids});
-            }
-
+            Console.WriteLine("ID sended");
+            Console.WriteLine("Level id send");
             foreach (ClientHandler client in _clients)
             {
                 ServerIO.Send(client.Client.GetStream(), new PacketLevel(client.GetHashCode(),"Level_ID1"));
                 ServerIO.Recieve(client.Client.GetStream()).HandleServerSide(this);
             }
-
+            Console.WriteLine("Level id sended");
+            Console.WriteLine("List make");
+            List<int> ids = _clients.Select(client => client.GetHashCode()).ToList();
+            Console.WriteLine("List made");
+            Console.WriteLine("List send");
+            foreach (ClientHandler client in _clients)
+            {
+                ServerIO.Send(client.Client.GetStream(), new PacketPlayers(client.GetHashCode()) { IdPlayers = ids });
+            }
+            Console.WriteLine("List sended");
             foreach (ClientHandler client in _clients)
             {
                 client.StartClientThread();
             }
 
-            Console.WriteLine("Game: {0} closed{1}",GetHashCode(),"");
+            //Console.WriteLine("Game: {0} closed{1}",GetHashCode(),"");
         }
         
         public void ResponsePacketLevel(PacketLevelRespone plr)
