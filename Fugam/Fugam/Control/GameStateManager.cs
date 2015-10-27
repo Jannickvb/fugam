@@ -33,7 +33,7 @@ namespace Fugam.Control
             PANEL_WIDTH = width;
             PANEL_HEIGHT = height;
             GAME_FONT = new Font("Arial",16);
-            GAME_STRING_BRUSH = new SolidBrush(Color.Red);
+            
 
             _gameStateList = new List<GameState>();
             _gameStateList.Add(new BeginState(this));

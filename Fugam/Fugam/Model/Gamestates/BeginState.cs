@@ -6,24 +6,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fugam.Control;
+using Fugam.Properties;
+using Fugam.Assets;
 
 namespace Fugam.Model
 {
     class BeginState : GameState
     {
-        private string _beginString;
+        private string[] menuItems = {"Start" , "Exit"};
+        private int menuIndex = 0;
+        private Bitmap background;
 
         public BeginState(GameStateManager gsm) : base(gsm)
         {
-            
+            background = new Bitmap(Resources.titlescreen);
         }
 
         public override void keyPressed(Keys k)
         {
-            switch (k)
-            {
-                
-            }
+           
         }
 
         public override void keyReleased(Keys k)
@@ -31,15 +32,38 @@ namespace Fugam.Model
             switch (k)
             {
                 case Keys.Enter:
-                    gsm.ConnectServer();
-                    gsm.SetState(State.Level1);
+                    switch (menuIndex)
+                    {
+                        case 0:
+                            gsm.ConnectServer();
+                            gsm.SetState(State.Level1);
+                            break;
+                        case 1:
+                            Application.Exit();
+                            break;
+                    }
+                    break;
+                case Keys.Up:
+                    menuIndex--;
+                    if (menuIndex == -1)
+                    {
+                        menuIndex = menuItems.Length - 1;
+                    }
+                    break;
+                case Keys.Down:
+                    menuIndex++;
+                    if (menuIndex == menuItems.Length)
+                    {
+                        menuIndex = 0;
+                    }
                     break;
             }
+
         }
 
         public override void init()
         {
-            _beginString = "Press enter to begin";
+
         }
 
         public override void update()
@@ -49,7 +73,21 @@ namespace Fugam.Model
 
         public override void draw(Graphics g)
         {
-            g.DrawString(_beginString,gsm.GAME_FONT,gsm.GAME_STRING_BRUSH,100,100);
+            //g.DrawImage(background, 0, 0, gsm.PANEL_WIDTH, gsm.PANEL_HEIGHT);
+            g.DrawImage(background, 0, 0, 800, 565);
+
+            for(int i = 0; i < menuItems.Length; i++)
+            {
+                if(i == menuIndex)
+                {
+                    g.DrawString(menuItems[i], gsm.GAME_FONT, CustomBrushes.BRUSH_MENU_HIGHLIGHT, 100, (i*100)+300);
+                }
+                else
+                {
+                    g.DrawString(menuItems[i], gsm.GAME_FONT, CustomBrushes.BRUSH_MENU_REGULAR, 100, (i * 100) + 300);
+                }
+            }
+            
         }
     }
 }

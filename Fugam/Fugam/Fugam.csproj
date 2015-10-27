@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CustomBrushes.cs" />
     <Compile Include="Control\GameStateManager.cs" />
     <Compile Include="Levels\IDraw.cs" />
     <Compile Include="Levels\Level.cs" />
@@ -112,6 +113,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\tileset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\titlescreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

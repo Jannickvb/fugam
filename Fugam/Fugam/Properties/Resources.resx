@@ -124,4 +124,7 @@
   <data name="tileset" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tileset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="titlescreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\titlescreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
