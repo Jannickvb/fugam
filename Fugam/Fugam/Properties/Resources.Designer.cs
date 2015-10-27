@@ -61,29 +61,23 @@ namespace Fugam.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to [header]
-        ///width=16
-        ///height=16
-        ///tilewidth=32
-        ///tileheight=32
-        ///orientation=orthogonal
-        ///
-        ///[tilesets]
-        ///tileset=../Pictures/Zpa4ZvlsD101dtshjhhSJW6Ga0qa8o4mIiJLsGH0XX9A6Sr1r3Z4AtKbetcLkBSz_old_double.png,32,32,0,0
-        ///
-        ///[layer]
-        ///type=Tilelaag 1
-        ///data=
+        ///   Looks up a localized string similar to 16
+        ///16
         ///1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
         ///1,1,1,26,27,35,28,29,35,119,37,1,1,1,1,1,
         ///1,1,1,105,106,89,89,89,89,89,56,1,1,1,1,1,
         ///1,1,1,124,89,154,89,89,89,89,75,32,101,102,103,1,
         ///1,1,1,105,89,154,154,61,108,89,50,51,120,121,122,1,
-        ///1,1,1,83,84,60,84,146,148,89,89,89,89,157,5 [rest of string was truncated]&quot;;.
+        ///1,1,1,83,84,60,84,146,148,89,89,89,89,157,56,1,
+        ///1,101,101,101,102,42,102,101,167,66,84,84,79,80,81,1,
+        ///1,26,21,22,121,60,121,31,102,42,102,82,101,102,103,1,
+        ///1,124,40,41,159,89,157,50,121,66,121,120,120,121,122,1,
+        ///1,105,89,89,89,89,89,109,89,74,66,66,53,55,56,1,
+        ///1,124,89,175, [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string level1 {
+        internal static string Level_ID1 {
             get {
-                return ResourceManager.GetString("level1", resourceCulture);
+                return ResourceManager.GetString("Level_ID1", resourceCulture);
             }
         }
         

@@ -48,7 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Control\GameStateManager.cs" />
-    <Compile Include="Levels\IDraw.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\LevelIO.cs" />
     <Compile Include="Model\Drawable\Entity.cs" />
@@ -108,10 +107,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\level1.txt" />
+    <None Include="Resources\tileset.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tileset.png" />
+    <None Include="Resources\Level_ID1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Fugam.Levels.Tile;
 
 namespace Fugam.Levels
 {
@@ -32,25 +33,67 @@ namespace Fugam.Levels
             {
                 DirectoryPath += (items[i] + @"\");
             }
-            DirectoryPath = Path.Combine(DirectoryPath, "Levels");
+            DirectoryPath = Path.Combine(DirectoryPath, "Resources");
             Console.WriteLine("Path: {0}",DirectoryPath);
             Console.WriteLine(Directory.Exists(DirectoryPath));
         }
 
         public static Level GetLevel(string levelId)
         {
-            Level newLevel = new Level();
+            Level newLevel = null;
             Console.WriteLine("File: "+File.Exists(Path.Combine(DirectoryPath, levelId + ".txt")));
-            
-            StreamReader reader = new StreamReader(Path.Combine(DirectoryPath, levelId + ".txt"));
-            int counter = 0;
-            string line;
-            while ((line = reader.ReadLine()) != null)
+
+            int arrayWidth, arrayHeight;
+            int[,] tileIds = null;
+            StreamReader reader = null;
+
+            try
             {
-                Console.WriteLine(line);
-                counter++;
+                reader = new StreamReader(Path.Combine(DirectoryPath, levelId + ".txt"));
+                arrayWidth = int.Parse(reader.ReadLine());
+                arrayHeight = int.Parse(reader.ReadLine());
+                tileIds = new int[arrayWidth, arrayHeight];
+                int row = 0;
+                string text;
+
+                while ((text = reader.ReadLine()) != string.Empty)
+                {
+                    Console.WriteLine("readline: "+text);
+                    string[] tileValues = text.Split(',');
+                    foreach (string value in tileValues)
+                    {
+                        Console.WriteLine("Value in stringarray: "+value);
+                    }
+                    for (int col = 0; col < arrayWidth; col++)
+                    {
+                        Console.WriteLine("Value: "+tileValues[col]);
+                        tileIds[row, col] = int.Parse(tileValues[col]);
+                    }
+                    row++;
+                }
+                if (row < arrayHeight - 1)
+                {
+                    throw new IOException("Expected tile height does not match actual row height");
+                }
             }
-            reader.Close();
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                try
+                {
+                    reader.Close();
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+            TileMap tm = new TileMap(tileIds,false,Fugam.Properties.Resources.tileset);
+            newLevel = new Level(tm);
             return newLevel;
         }
     }

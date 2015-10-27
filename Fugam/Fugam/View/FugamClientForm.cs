@@ -24,7 +24,6 @@ namespace Fugam
             Graphics g = mainPanel.CreateGraphics();
             _gsm.StartGame(g);
             LevelIO.SetPath();
-            LevelIO.GetLevel("Level_ID=1");
         }
 
         private void FugamClientForm_KeyDown(object sender, KeyEventArgs e)

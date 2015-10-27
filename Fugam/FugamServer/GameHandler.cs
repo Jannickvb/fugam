@@ -45,7 +45,7 @@ namespace FugamServer
         {
             foreach (ClientHandler client in _clients)
             {
-                ServerIO.Send(client.Client.GetStream(), new PacketLevel("Level_ID=1"));
+                ServerIO.Send(client.Client.GetStream(), new PacketLevel("Level_ID1"));
                 ServerIO.Recieve(client.Client.GetStream()).HandleServerSide(this);
             }
 
