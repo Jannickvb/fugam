@@ -14,36 +14,24 @@ namespace Fugam.Model.Drawable
 
         public int x { get; set; }
         public int y { get; set; }
-        public bool isMoving { get; set; }
+        public int Id { get; }
 
-        public Player(int x, int y,TileMap tilemap):base(tilemap){
+        public Player(int id,TileMap tilemap):base(tilemap)
+        {
+            Id = id;
             this.x = x;
             this.y = y;
         }
 
         public override void init()
-        {
+        {}
 
-        }
+        public override void update()
+        {}
 
         public override void draw(Graphics g)
         {
-
-        }
-
-        public override void update()
-        {
-            
-        }
-
-        public void keyPressed(int keyCode)
-        {
-
-        }
-
-        public void keyReleased(int keyCode)
-        {
-
+            g.FillRectangle(Brushes.Blue,x,y,50,50);
         }
     }
 }

@@ -8,18 +8,17 @@ using FugamUtil.Interface;
 namespace FugamUtil.Packets.SubPackets
 {
     [Serializable]
-    public class PacketLevel : Packet
+    public class PacketPlayers : Packet
     {
-        public string NewLevelId { get; }
+        public List<int> IdPlayers { get; set; }
 
-        public PacketLevel(int id, string levelid):base(id)
+        public PacketPlayers(int yourId) : base(yourId)
         {
-            NewLevelId = levelid;
         }
 
         public override void HandleClientSide(IClient clientInterface)
         {
-            clientInterface.ReceivePacketLevel(this);
+            clientInterface.ReceivePacketPlayers(this);
         }
     }
 }

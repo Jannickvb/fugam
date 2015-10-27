@@ -10,8 +10,17 @@ namespace FugamUtil.Packets
     [Serializable]
     public class Packet
     {
+        public int ClientId { get; }
+
+        public Packet(int id)
+        {
+            ClientId = id;
+        }
+
         public virtual void HandleClientSide(IClient clientInterface)
-        { }
+        {
+            clientInterface.ReceivePacket(this);
+        }
 
         public virtual void HandleServerSide(IServer serverInterface)
         { }

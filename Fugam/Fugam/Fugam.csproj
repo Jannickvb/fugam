@@ -54,6 +54,7 @@
     <Compile Include="Model\Drawable\Animation.cs" />
     <Compile Include="Model\Drawable\Entity.cs" />
     <Compile Include="Model\Drawable\Player.cs" />
+    <Compile Include="Model\Drawable\YourPlayer.cs" />
     <Compile Include="Model\Gamestates\BeginState.cs" />
     <Compile Include="Model\Gamestates\GameState.cs" />
     <Compile Include="Model\Gamestates\Level1.cs" />

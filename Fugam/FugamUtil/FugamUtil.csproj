@@ -46,6 +46,9 @@
     <Compile Include="Packets\Packet.cs" />
     <Compile Include="Packets\SubPackets\PacketLevel.cs" />
     <Compile Include="Packets\SubPackets\PacketLevelReceived.cs" />
+    <Compile Include="Packets\SubPackets\PacketPlayers.cs" />
+    <Compile Include="Packets\SubPackets\PacketOtherPlayersPosition.cs" />
+    <Compile Include="Packets\SubPackets\PacketPlayerPosition.cs" />
     <Compile Include="ServerIO.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

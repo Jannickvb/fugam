@@ -38,8 +38,6 @@ namespace FugamServer
 
             int currentClients = 0;
             GameHandler game = new GameHandler(this);
-            Console.WriteLine("Game start: {0}", DateTime.Now);
-            Console.WriteLine("Game Hashcode: {0}", game.GetHashCode());
 
             while (true)
             {
@@ -54,8 +52,6 @@ namespace FugamServer
                     game.StartGame();
                     currentClients = 0;
                     game = new GameHandler(this);
-                    Console.WriteLine("Game start: {0}", DateTime.Now);
-                    Console.WriteLine("Game Hashcode: {0}", game.GetHashCode());
                 }
             }
         }
