@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using FugamUtil.Interface;
+using FugamUtil.Packets.SubPackets;
 
 namespace Fugam.Model
 {
-    public abstract class GameState
+    public abstract class GameState : IClient
     {
         public GameStateManager gsm { get; }
 
@@ -22,5 +24,7 @@ namespace Fugam.Model
         public abstract void init();
         public abstract void update();
         public abstract void draw(Graphics g);
+        public virtual void ReceivePacketLevel(PacketLevel pl)
+        { }
     }
 }

@@ -33,7 +33,6 @@ namespace Fugam.Model
                 case Keys.Enter:
                     gsm.ConnectServer();
                     gsm.SetState(State.Level1);
-                    
                     break;
             }
         }

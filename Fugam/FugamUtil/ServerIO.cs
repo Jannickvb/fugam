@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using FugamUtil.Packets;
 
 namespace FugamUtil
 {
@@ -12,14 +13,14 @@ namespace FugamUtil
     {
         private readonly static BinaryFormatter Formatter = new BinaryFormatter();
 
-        public static void Send(Stream stream, object ob)
+        public static void Send(Stream stream, Packet packet)
         {
-            Formatter.Serialize(stream,ob);
+            Formatter.Serialize(stream,packet);
         }
 
-        public static object Recieve(Stream stream)
+        public static Packet Recieve(Stream stream)
         {
-            return Formatter.Deserialize(stream);
+            return (Packet)Formatter.Deserialize(stream);
         }
     }
 }

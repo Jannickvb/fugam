@@ -6,14 +6,17 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FugamUtil;
+using FugamUtil.Interface;
+using FugamUtil.Packets.SubPackets;
 
 namespace FugamServer
 {
-    class GameHandler
+    class GameHandler : IServer
     {
         private FugamServer _server;
         private Thread _gameThread;
         private readonly ClientHandler[] _clients;
+        private Level _level;
 
         public GameHandler(FugamServer server)
         {
@@ -28,6 +31,7 @@ namespace FugamServer
 
         public void StartGame()
         {
+            _level = new Level();
             _gameThread = new Thread(new ThreadStart(Game));
             _gameThread.Start();
         }
@@ -41,17 +45,17 @@ namespace FugamServer
         //game logic
         private void Game()
         {
-            //foreach (ClientHandler client in _clients)
-            //{
-            //    ServerIO.Send(client.Client.GetStream(),"Hello");
-            //}
-            double x = -10.0;
+            foreach (ClientHandler client in _clients)
+            {
+                ServerIO.Send(client.Client.GetStream(), new PacketLevel(_level));
+                ServerIO.Recieve(client.Client.GetStream()).HandleServerSide(this);
+            }
+
             while (ClientsConnected())
             {
                 foreach (ClientHandler client in _clients)
                 {
-                    ServerIO.Send(client.Client.GetStream(),x);
-                    x += 0.001;
+                    
                 }
             }
 
@@ -68,6 +72,11 @@ namespace FugamServer
                 }
             }
             return true;
+        }
+
+        public void ResponsePacketLevel(PacketLevelRespone plr)
+        {
+            Console.WriteLine(plr.Received);
         }
     }
 }
