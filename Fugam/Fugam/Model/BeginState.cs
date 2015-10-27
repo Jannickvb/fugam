@@ -45,7 +45,7 @@ namespace Fugam.Model
 
         public override void update()
         {
-            Console.WriteLine("Begin state!!");
+            //Console.WriteLine("Begin state!!");
         }
 
         public override void draw(Graphics g)
