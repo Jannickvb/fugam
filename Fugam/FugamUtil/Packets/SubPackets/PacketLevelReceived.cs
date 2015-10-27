@@ -12,7 +12,7 @@ namespace FugamUtil.Packets.SubPackets
     {
         public bool Received { get; }
 
-        public PacketLevelRespone(bool received)
+        public PacketLevelRespone(int id,bool received):base(id)
         {
             Received = received;
         }

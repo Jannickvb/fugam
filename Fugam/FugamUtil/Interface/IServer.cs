@@ -10,5 +10,6 @@ namespace FugamUtil.Interface
     public interface IServer
     {
         void ResponsePacketLevel(PacketLevelRespone plr);
+        void ReceivePacketPlayerPosition(PacketPlayerPosition ppp);
     }
 }

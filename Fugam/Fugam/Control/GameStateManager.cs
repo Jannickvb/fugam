@@ -26,6 +26,8 @@ namespace Fugam.Control
         private GEngine _gEngine;
         public TcpClient Client { get; set; }
 
+        public int ServerClientID { get; set; }
+
         private readonly Thread _updateThread;
 
         public GameStateManager(int width, int height)

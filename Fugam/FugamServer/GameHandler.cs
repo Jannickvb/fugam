@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FugamUtil;
 using FugamUtil.Interface;
+using FugamUtil.Packets;
 using FugamUtil.Packets.SubPackets;
 
 namespace FugamServer
@@ -14,7 +15,6 @@ namespace FugamServer
     class GameHandler : IServer
     {
         private FugamServer _server;
-        private Thread _gameThread;
         private readonly ClientHandler[] _clients;
 
         public GameHandler(FugamServer server)
@@ -25,18 +25,20 @@ namespace FugamServer
 
         public void AddPlayer(TcpClient client, int number)
         {
-            _clients[number] = new ClientHandler(client,number);
+            _clients[number] = new ClientHandler(client,number,this);
         }
 
         public void StartGame()
         {
-            _gameThread = new Thread(new ThreadStart(Game));
-            _gameThread.Start();
+            Game();
         }
 
         public void StopGame()
         {
-            _gameThread.Abort();
+            foreach (ClientHandler client in _clients)
+            {
+                client.Close();
+            }
         }
 
 
@@ -45,36 +47,43 @@ namespace FugamServer
         {
             foreach (ClientHandler client in _clients)
             {
-                ServerIO.Send(client.Client.GetStream(), new PacketLevel("Level_ID1"));
+                ServerIO.Send(client.Client.GetStream(),new Packet(client.GetHashCode()));
+            }
+            List<int> ids = _clients.Select(client => client.GetHashCode()).ToList();
+
+            foreach (ClientHandler client in _clients)
+            {
+                ServerIO.Send(client.Client.GetStream(),new PacketPlayers(client.GetHashCode()) {IdPlayers = ids});
+            }
+
+            foreach (ClientHandler client in _clients)
+            {
+                ServerIO.Send(client.Client.GetStream(), new PacketLevel(client.GetHashCode(),"Level_ID1"));
                 ServerIO.Recieve(client.Client.GetStream()).HandleServerSide(this);
             }
 
-            while (ClientsConnected())
+            foreach (ClientHandler client in _clients)
             {
-                foreach (ClientHandler client in _clients)
-                {
-                    
-                }
+                client.StartClientThread();
             }
 
             Console.WriteLine("Game: {0} closed{1}",GetHashCode(),"");
         }
         
-        private bool ClientsConnected()
+        public void ResponsePacketLevel(PacketLevelRespone plr)
+        {
+            Console.WriteLine("Level is received: "+plr.Received);
+        }
+
+        public void ReceivePacketPlayerPosition(PacketPlayerPosition ppp)
         {
             foreach (ClientHandler client in _clients)
             {
-                if (!client.Client.Connected)
+                if (client.GetHashCode() != ppp.ClientId)
                 {
-                    return false;
+                    ServerIO.Send(client.Client.GetStream(),ppp);
                 }
             }
-            return true;
-        }
-
-        public void ResponsePacketLevel(PacketLevelRespone plr)
-        {
-            Console.WriteLine(plr.Received);
         }
     }
 }
