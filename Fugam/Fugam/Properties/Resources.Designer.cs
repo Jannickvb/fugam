@@ -59,5 +59,42 @@ namespace Fugam.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [header]
+        ///width=16
+        ///height=16
+        ///tilewidth=32
+        ///tileheight=32
+        ///orientation=orthogonal
+        ///
+        ///[tilesets]
+        ///tileset=../Pictures/Zpa4ZvlsD101dtshjhhSJW6Ga0qa8o4mIiJLsGH0XX9A6Sr1r3Z4AtKbetcLkBSz_old_double.png,32,32,0,0
+        ///
+        ///[layer]
+        ///type=Tilelaag 1
+        ///data=
+        ///1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        ///1,1,1,26,27,35,28,29,35,119,37,1,1,1,1,1,
+        ///1,1,1,105,106,89,89,89,89,89,56,1,1,1,1,1,
+        ///1,1,1,124,89,154,89,89,89,89,75,32,101,102,103,1,
+        ///1,1,1,105,89,154,154,61,108,89,50,51,120,121,122,1,
+        ///1,1,1,83,84,60,84,146,148,89,89,89,89,157,5 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string level1 {
+            get {
+                return ResourceManager.GetString("level1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tileset {
+            get {
+                object obj = ResourceManager.GetObject("tileset", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
