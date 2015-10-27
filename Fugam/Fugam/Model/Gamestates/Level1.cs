@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Fugam.Control;
+using Fugam.Levels;
 using FugamUtil;
 using FugamUtil.Packets.SubPackets;
 
@@ -14,6 +15,7 @@ namespace Fugam.Model
     class Level1 : GameState
     {
         private Level _level;
+
         public Level1(GameStateManager gsm) : base(gsm)
         {
             
@@ -54,13 +56,13 @@ namespace Fugam.Model
         {
             if (_level != null)
             {
-                _level.Draw(g);
+                _level.DrawTile(g);
             }
         }
 
         public override void ReceivePacketLevel(PacketLevel pl)
         {
-            _level = pl.NewLevel;
+            _level = LevelIO.GetLevel(pl.NewLevelId);
             ServerIO.Send(gsm.Client.GetStream(),new PacketLevelRespone(true));
         }
     }

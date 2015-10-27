@@ -49,17 +49,13 @@
   <ItemGroup>
     <Compile Include="Control\GameStateManager.cs" />
     <Compile Include="Model\Drawable\Entity.cs" />
-    <Compile Include="Model\Drawable\Obstacle.cs" />
     <Compile Include="Model\Drawable\Player.cs" />
-    <Compile Include="Model\Drawable\Trigger.cs" />
     <Compile Include="Model\Gamestates\BeginState.cs" />
     <Compile Include="Model\Gamestates\GameState.cs" />
     <Compile Include="Model\Gamestates\Level1.cs" />
     <Compile Include="Control\ServerConnection.cs" />
     <Compile Include="Model\InputHandling\InputHandler.cs" />
     <Compile Include="Model\InputHandling\Keys.cs" />
-    <Compile Include="Model\Tile\Tile.cs" />
-    <Compile Include="Model\Tile\TileMap.cs" />
     <Compile Include="View\FugamClientForm.cs">
       <SubType>Form</SubType>
     </Compile>
