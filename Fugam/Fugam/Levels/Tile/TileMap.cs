@@ -5,23 +5,23 @@ namespace Fugam.Levels.Tile
 {
     public class TileMap
     {
-        private int[,] _tileIds;
-        private Tile[,] _tiles;
-        public int ArrayWidth { get; }
-        public int ArrayHeight { get; }
+        private int[,] tilemap;
+        private Tile[,] tiles;
+        public int y { get; }
+        public int x { get; }
         public bool IsCollisonMap { get; }
 
-        public TileMap(int[,] tileIds,bool collisonMap,Bitmap tileset)
+        public TileMap(int[,] tilemap,bool collisonMap)
         {
-            _tileIds = tileIds;
-            ArrayWidth = _tileIds.GetLength(0);
-            ArrayHeight = _tileIds.GetLength(1);
-            _tiles = new Tile[ArrayWidth,ArrayHeight];
+            this.tilemap = tilemap;
+            y = tilemap.GetLength(0);
+            x = tilemap.GetLength(1);
+            tiles = new Tile[x,y];
             IsCollisonMap = collisonMap;
-            LoadTiles(ArrayWidth,ArrayHeight,tileset);
+            LoadTiles(x, y);
         }
 
-        private void LoadTiles(int width, int height,Bitmap tileset)
+        private void LoadTiles(int width, int height)
         {
             for (int i = 0; i < height; i++)
             {
@@ -29,34 +29,27 @@ namespace Fugam.Levels.Tile
                 {
                     if (IsCollisonMap)
                     {
-                        //bool solid;
-                        //if (_tileIds[k][i] != 0)
-                        //{
-                        //    solid = true;
-                        //}
-                        //else
-                        //{
-                        //    solid = false;
-                        //}
-                        _tiles[k, i] = new Tile(_tileIds[k,i] != 0, i*Tile.Size, i*Tile.Size, _tileIds[k,i]);
+                        if (tilemap[k,i] != 0)
+                        {
+                            tiles[k, i] = new Tile(true, i * Tile.Size, k * Tile.Size, tilemap[k,i]);
+                        }
+                        else
+                        {
+                            tiles[k, i] = new Tile(false, i * Tile.Size, k * Tile.Size, tilemap[k,i]);
+                        }
                     }
                     else
                     {
-                        _tiles[k, i] = new Tile(false, i * Tile.Size, i * Tile.Size, _tileIds[k,i]);
+                        tiles[k, i] = new Tile(false, i * Tile.Size, k * Tile.Size, tilemap[k,i]);
                     }
                 }
             }
         }
 
-        public void DrawTiles(Graphics g)
+        public Tile[,] getTileMap()
         {
-            for (int i = 0; i < ArrayHeight; i++)
-            {
-                for (int k = 0; k < ArrayWidth; k++)
-                {
-                    _tiles[k,i].DrawTile(g);
-                }
-            }
+            return tiles;
         }
+
     }
 }

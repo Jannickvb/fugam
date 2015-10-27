@@ -9,6 +9,7 @@ using Fugam.Control;
 using Fugam.Levels;
 using FugamUtil;
 using FugamUtil.Packets.SubPackets;
+using Fugam.Levels.Tile;
 
 namespace Fugam.Model
 {
@@ -62,7 +63,7 @@ namespace Fugam.Model
 
         public override void ReceivePacketLevel(PacketLevel pl)
         {
-            _level = LevelIO.GetLevel(pl.NewLevelId);
+            _level = new Level(new TileMap(LevelIO.GetLevel(pl.NewLevelId),false));
             ServerIO.Send(gsm.Client.GetStream(),new PacketLevelRespone(true));
         }
     }

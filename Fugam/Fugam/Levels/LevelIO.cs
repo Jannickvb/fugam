@@ -38,13 +38,12 @@ namespace Fugam.Levels
             Console.WriteLine(Directory.Exists(DirectoryPath));
         }
 
-        public static Level GetLevel(string levelId)
+        public static int[,] GetLevel(string levelId)
         {
-            Level newLevel = null;
             Console.WriteLine("File: "+File.Exists(Path.Combine(DirectoryPath, levelId + ".txt")));
 
             int arrayWidth, arrayHeight;
-            int[,] tileIds = null;
+            int[,] tilemap = null;
             StreamReader reader = null;
 
             try
@@ -52,29 +51,27 @@ namespace Fugam.Levels
                 reader = new StreamReader(Path.Combine(DirectoryPath, levelId + ".txt"));
                 arrayWidth = int.Parse(reader.ReadLine());
                 arrayHeight = int.Parse(reader.ReadLine());
-                tileIds = new int[arrayWidth, arrayHeight];
+                tilemap = new int[arrayHeight,arrayWidth];
                 int row = 0;
                 string text;
 
                 while ((text = reader.ReadLine()) != string.Empty)
                 {
                     Console.WriteLine("readline: "+text);
-                    string[] tileValues = text.Split(',');
-                    foreach (string value in tileValues)
+                    if (row < arrayHeight)
                     {
-                        Console.WriteLine("Value in stringarray: "+value);
+                        string[] tileValues = text.Split(',');
+                        for(int col = 0; col < arrayWidth;col++)
+                            tilemap[row,col] = int.Parse(tileValues[col]);
+                        row++;
                     }
-                    for (int col = 0; col < arrayWidth; col++)
-                    {
-                        Console.WriteLine("Value: "+tileValues[col]);
-                        tileIds[row, col] = int.Parse(tileValues[col]);
-                    }
-                    row++;
                 }
+                //zero index rows
                 if (row < arrayHeight - 1)
                 {
                     throw new IOException("Expected tile height does not match actual row height");
                 }
+                return tilemap;
             }
             catch (IOException e)
             {
@@ -91,10 +88,7 @@ namespace Fugam.Levels
                     Console.WriteLine(e.Message);
                 }
             }
-
-            TileMap tm = new TileMap(tileIds,false,Fugam.Properties.Resources.tileset);
-            newLevel = new Level(tm);
-            return newLevel;
+            return tilemap;
         }
     }
 }
