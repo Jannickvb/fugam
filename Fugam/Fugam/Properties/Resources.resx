@@ -121,6 +121,30 @@
   <data name="Level_ID1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Level_ID1.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="playerreddown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerreddown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playerredleft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerredleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playerredright" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerredright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playerredup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playerredup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playeryellowdown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playeryellowdown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playeryellowleft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playeryellowleft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playeryellowright" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playeryellowright.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playeryellowup" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playeryellowup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tileset" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tileset.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
