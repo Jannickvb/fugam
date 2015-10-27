@@ -20,6 +20,8 @@ namespace Fugam
         {
             InitializeComponent();
             _gsm = new GameStateManager(mainPanel.Width,mainPanel.Height);
+            Graphics g = mainPanel.CreateGraphics();
+            _gsm.StartGame(g);
         }
 
         private void FugamClientForm_KeyDown(object sender, KeyEventArgs e)
@@ -34,8 +36,7 @@ namespace Fugam
 
         private void mainPanel_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = mainPanel.CreateGraphics();
-            _gsm.StartGame(g);
+            
         }
 
         private void FugamClientForm_FormClosing(object sender, FormClosingEventArgs e)
