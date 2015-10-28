@@ -19,8 +19,8 @@ namespace Fugam.Model
             this.tilemap = tilemap;
         }
 
-        public abstract void init();
-        public abstract void draw(Graphics g);
-        public abstract void update();
+        public abstract void Init();
+        public abstract void Draw(Graphics g);
+        public abstract void Update();
     }
 }

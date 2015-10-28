@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FugamUtil.Identifier;
 using FugamUtil.Interface;
 
 namespace FugamUtil.Packets.SubPackets
@@ -10,10 +11,11 @@ namespace FugamUtil.Packets.SubPackets
     [Serializable]
     public class PacketPlayers : Packet
     {
-        public List<int> IdPlayers { get; set; }
-
-        public PacketPlayers(int yourId) : base(yourId)
+        public List<FugamID> playerIDs { get; }
+         
+        public PacketPlayers(FugamID id,List<FugamID> playerids ) : base(id)
         {
+            playerIDs = playerids;
         }
 
         public override void HandleClientSide(IClient clientInterface)

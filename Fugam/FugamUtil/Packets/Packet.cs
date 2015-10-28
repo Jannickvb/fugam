@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FugamUtil.Identifier;
 using FugamUtil.Interface;
 
 namespace FugamUtil.Packets
 {
     [Serializable]
-    public class Packet
+    public abstract class Packet
     {
-        public int ClientId { get; }
+        public FugamID FugamId { get; }
 
-        public Packet(int id)
+        protected Packet(FugamID id)
         {
-            ClientId = id;
+            FugamId = id;
         }
 
         public virtual void HandleClientSide(IClient clientInterface)
-        {
-            clientInterface.ReceivePacket(this);
-        }
+        { }
 
         public virtual void HandleServerSide(IServer serverInterface)
         { }

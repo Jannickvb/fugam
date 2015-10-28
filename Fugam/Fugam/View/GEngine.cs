@@ -54,7 +54,12 @@ namespace Fugam.View
                 _gsm.CurrentState.draw(drawGraphics);
 
                 //frames per second
-                drawGraphics.DrawString(fps+"",_gsm.GAME_FONT,Assets.CustomBrushes.BRUSH_MENU_HIGHLIGHT,0,0);
+                string txt = fps + "";
+                if (_gsm.FugamId != null)
+                {
+                    txt += "\n" + _gsm.FugamId.ToString();
+                }
+                drawGraphics.DrawString(txt,_gsm.GAME_FONT,Assets.CustomBrushes.BRUSH_MENU_HIGHLIGHT,0,0);
 
                 //draw the drawmap
                 _panelGraphics.DrawImage(drawMap,0,0);

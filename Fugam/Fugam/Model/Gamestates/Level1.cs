@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Fugam.Assets;
 using Fugam.Control;
 using Fugam.Levels;
 using Fugam.Model.Drawable;
@@ -32,7 +33,6 @@ namespace Fugam.Model
                 case Keys.W:
                     break;
                 case Keys.A:
-                    gsm.SetState(State.Begin);
                     break;
                 case Keys.S:
                     break;
@@ -43,7 +43,21 @@ namespace Fugam.Model
 
         public override void keyReleased(Keys k)
         {
-            
+            switch (k)
+            {
+                case Keys.W:
+                    player.Up();
+                    break;
+                case Keys.A:
+                    player.Left();
+                    break;
+                case Keys.S:
+                    player.Down();
+                    break;
+                case Keys.D:
+                    player.Right();
+                    break;
+            }
         }
 
         public override void init()
@@ -53,66 +67,71 @@ namespace Fugam.Model
 
         public override void update()
         {
-            ServerIO.Recieve(gsm.Client.GetStream()).HandleClientSide(this);
-            if (player != null && _otherPlayers != null)
+            if (player != null)
             {
-                ServerIO.Send(gsm.Client.GetStream(),new PacketPlayerPosition(gsm.ServerClientID,player.x,player.y));
-            }  
+                ServerIO.Send(gsm.Client.GetStream(), new PacketPlayerPosition(gsm.FugamId, player.x, player.y));
+            }
+            //if (gsm.FugamId != null)
+            //{
+            //    Console.WriteLine(gsm.FugamId + "\twaiting for packet\t"+DateTime.Now);
+            //}
+            ServerIO.Recieve(gsm.Client.GetStream()).HandleClientSide(this);
+            //Console.WriteLine(gsm.FugamId + "\tpacket received\t" + DateTime.Now);
         }
+
+      
 
         public override void draw(Graphics g)
         {
-            if (_level != null)
-            {
-                _level.Draw(g);
-            }
-            if (player != null)
-            {
-                player.draw(g);
-            }
+            _level?.Draw(g);
+            player?.Draw(g);
+
             if (_otherPlayers != null)
             {
-                foreach (Player p in _otherPlayers)
+                foreach (Player otherPlayer in _otherPlayers)
                 {
-                    p.draw(g);
+                    otherPlayer.Draw(g);
                 }
             }
+        }
+
+        public override void ReceivePacketFugamID(PacketFugamID fid)
+        {
+            gsm.FugamId = fid.FugamId;
         }
 
         public override void ReceivePacketLevel(PacketLevel pl)
         {
             _level = new Level(new TileMap(LevelIO.GetLevel(pl.NewLevelId), false));
-            ServerIO.Send(gsm.Client.GetStream(),new PacketLevelRespone(gsm.ServerClientID,true));
         }
 
-        public override void ReceivePacket(Packet packet)
+        public override void ReceivePacketPlayers(PacketPlayers pp)
         {
-            Console.WriteLine("Id in gamestate: " + packet.ClientId);
-            gsm.ServerClientID = packet.ClientId;
-        }
+            player = new YourPlayer(gsm.FugamId,_level.TileMap);
 
-        public override void ResponePacketOtherPlayerPosition(PacketPlayerPosition ppp)
-        {
-            foreach (Player p in _otherPlayers)
+            _otherPlayers = new Player[pp.playerIDs.Count-1];
+
+            int opp = 0;
+            for (int i = 0; i < pp.playerIDs.Count; i++)
             {
-                if (p.Id == ppp.ClientId)
+                if (!pp.playerIDs.ElementAt(i).Equals(gsm.FugamId))
                 {
-                    p.x = ppp.X;
-                    p.y = ppp.Y;
+                    _otherPlayers[opp] = new Player(pp.playerIDs.ElementAt(i),_level.TileMap);
+                    opp++;
                 }
             }
         }
-
-        public override void ReceivePacketPlayers(PacketPlayers pop)
+        
+        public override void ResponePacketPlayerPosition(PacketPlayerPosition ppp)
         {
-            Console.WriteLine("ID: "+gsm.ServerClientID);
-            Console.WriteLine("Tile map: "+_level.TileMap);
-            player = new YourPlayer(gsm.ServerClientID,_level.TileMap);
-            _otherPlayers = new Player[pop.IdPlayers.Count-1];
-            for (int i = 0; i < _otherPlayers.Length; i++)
+            foreach (Player p in _otherPlayers)
             {
-                if(pop.IdPlayers.ElementAt(i) != gsm.ServerClientID)
-                _otherPlayers[i] = new Player(pop.IdPlayers.ElementAt(i),_level.TileMap);
+                if (p.fid.Equals(ppp.FugamId))
+                {
+                    p.x = ppp.X;
+                    p.y = ppp.Y;
+                    break;
+                } 
             }
         }
     }

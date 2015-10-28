@@ -7,31 +7,35 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FugamUtil;
+using FugamUtil.Identifier;
+using FugamUtil.Packets.SubPackets;
 
 namespace FugamServer
 {
     class ClientHandler
     {
-        public int Id { get; }
-        private GameHandler _game;
+        public FugamID FugamId { get; }
+        private readonly GameHandler _game;
         public TcpClient Client { get; }
-        private Thread _clientThread;
+        private readonly Thread _clientThread;
         
 
         public ClientHandler(TcpClient client,int id,GameHandler game)
         {
             Client = client;
             _game = game;
-            id++;
-            Id = id;
+            FugamId = new FugamID(Client.GetHashCode(),id);
             _clientThread = new Thread(new ThreadStart(ClientThread));
+            ServerIO.Send(Client.GetStream(),new PacketFugamID(FugamId));
         }
 
         private void ClientThread()
         {
             while (Client.Connected)
             {
+                //Console.WriteLine(FugamId + "\twaiting for packet\t" + DateTime.Now);
                 ServerIO.Recieve(Client.GetStream()).HandleServerSide(_game);
+                //Console.WriteLine(FugamId + "\tpacket received\t" + DateTime.Now);
             }
         }
 

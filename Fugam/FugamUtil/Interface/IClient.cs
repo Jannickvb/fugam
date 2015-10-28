@@ -10,9 +10,9 @@ namespace FugamUtil.Interface
 {
     public interface IClient
     {
+        void ReceivePacketFugamID(PacketFugamID fid);
         void ReceivePacketLevel(PacketLevel level);
-        void ReceivePacket(Packet packet);
-        void ResponePacketOtherPlayerPosition(PacketPlayerPosition popp);
-        void ReceivePacketPlayers(PacketPlayers pop);
+        void ReceivePacketPlayers(PacketPlayers pp);
+        void ResponePacketPlayerPosition(PacketPlayerPosition ppp);
     }
 }

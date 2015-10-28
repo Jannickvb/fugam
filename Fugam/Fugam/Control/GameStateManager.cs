@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Fugam.View;
 using FugamUtil;
+using FugamUtil.Identifier;
 
 namespace Fugam.Control
 {
@@ -26,7 +27,7 @@ namespace Fugam.Control
         private GEngine _gEngine;
         public TcpClient Client { get; set; }
 
-        public int ServerClientID { get; set; }
+        public FugamID FugamId { get; set; }
 
         private readonly Thread _updateThread;
 

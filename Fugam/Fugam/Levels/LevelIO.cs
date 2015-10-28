@@ -21,7 +21,7 @@ namespace Fugam.Levels
             
             for (int i = 0; i < items.Length; i++)
             {
-                Console.WriteLine(items[i]);
+                //Console.WriteLine(items[i]);
                 if (items[i] == "bin")
                 {
                     p = i;

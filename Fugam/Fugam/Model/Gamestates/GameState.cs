@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using FugamUtil.Identifier;
 using FugamUtil.Interface;
 using FugamUtil.Packets;
 using FugamUtil.Packets.SubPackets;
@@ -25,14 +26,14 @@ namespace Fugam.Model
         public abstract void init();
         public abstract void update();
         public abstract void draw(Graphics g);
+
+        public virtual void ReceivePacketFugamID(PacketFugamID fid)
+        { }
         public virtual void ReceivePacketLevel(PacketLevel pl)
         { }
-
-        public virtual void ReceivePacket(Packet packet)
+        public virtual void ReceivePacketPlayers(PacketPlayers pp)
         { }
-        public virtual void ResponePacketOtherPlayerPosition(PacketPlayerPosition ppp)
-        { }
-        public virtual void ReceivePacketPlayers(PacketPlayers pop)
+        public virtual void ResponePacketPlayerPosition(PacketPlayerPosition ppp)
         { }
     }
 }

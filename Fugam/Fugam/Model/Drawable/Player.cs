@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fugam.Levels.Tile;
+using FugamUtil.Identifier;
 
 namespace Fugam.Model.Drawable
 {
@@ -14,24 +15,46 @@ namespace Fugam.Model.Drawable
 
         public int x { get; set; }
         public int y { get; set; }
-        public int Id { get; }
+        public FugamID fid { get; }
 
-        public Player(int id,TileMap tilemap):base(tilemap)
+        public Player(FugamID id,TileMap tilemap):base(tilemap)
         {
-            Id = id;
-            this.x = x;
-            this.y = y;
+            fid = id;
+            y = 11;
+            switch (fid.GameID)
+            {
+                case 0:
+                    x = 4;
+                    break;
+                case 1:
+                    x = 10;
+                    break;
+            }
         }
 
-        public override void init()
+        public override void Init()
         {}
 
-        public override void update()
+        public override void Update()
         {}
 
-        public override void draw(Graphics g)
+        public override void Draw(Graphics g)
         {
-            g.FillRectangle(Brushes.Blue,x,y,50,50);
+            Brush fillBrush = null;
+            switch (fid.GameID)
+            {
+                case 0:
+                    fillBrush = Brushes.Blue;
+                    break;
+                case 1:
+                    fillBrush = Brushes.Red;
+                    break;
+                default:
+                    fillBrush = Brushes.Purple;
+                    break;
+
+            }
+            g.FillRectangle(fillBrush,x*Tile.Size,y*Tile.Size,Tile.Size,Tile.Size);
         }
     }
 }

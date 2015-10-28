@@ -20,11 +20,13 @@ namespace FugamServer
         private TcpListener _server;
         private IPAddress _ip;
         private int _port;
+        public static int MaxPlayersEachGame { get; set; }
 
         public FugamServer(IPAddress ip, int port)
         {
             this._ip = ip;
             this._port = port;
+            MaxPlayersEachGame = 2;
 
             _server = new TcpListener(_ip,_port);
             ServerStart();
@@ -47,7 +49,7 @@ namespace FugamServer
                 game.AddPlayer(client,currentClients);
                 currentClients++;
 
-                if (currentClients == 2)
+                if (currentClients == MaxPlayersEachGame)
                 {
                     game.StartGame();
                     currentClients = 0;

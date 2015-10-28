@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Fugam.Levels.Tile;
+using FugamUtil.Identifier;
 
 namespace Fugam.Model.Drawable
 {
@@ -12,34 +13,39 @@ namespace Fugam.Model.Drawable
     {
         public bool isMoving { get; set; }
 
-        public YourPlayer(int id, TileMap tm) : base(id,tm)
+        public YourPlayer(FugamID id, TileMap tm) : base(id,tm)
         {
             
         }
-
-        public override void draw(Graphics g)
-        {
-            g.FillRectangle(Brushes.Red,x,y,50,50);
-        }
-
-        public override void init()
+        
+        public override void Init()
         {
 
         }
 
-        public override void update()
+        public override void Update()
         {
 
         }
 
-        public void keyPressed(int keyCode)
+        public void Right()
         {
-
+            x += 1;
         }
 
-        public void keyReleased(int keyCode)
+        public void Left()
         {
+            x -= 1;
+        }
 
+        public void Up()
+        {
+            y -= 1;
+        }
+
+        public void Down()
+        {
+            y += 1;
         }
     }
 }

@@ -9,18 +9,14 @@ using FugamUtil.Interface;
 namespace FugamUtil.Packets.SubPackets
 {
     [Serializable]
-    public class PacketLevel : Packet
+    public class PacketFugamID : Packet
     {
-        public string NewLevelId { get; }
-
-        public PacketLevel(FugamID id, string levelid):base(id)
-        {
-            NewLevelId = levelid;
-        }
+        public PacketFugamID(FugamID id) : base(id)
+        { }
 
         public override void HandleClientSide(IClient clientInterface)
         {
-            clientInterface.ReceivePacketLevel(this);
+            clientInterface.ReceivePacketFugamID(this);
         }
     }
 }

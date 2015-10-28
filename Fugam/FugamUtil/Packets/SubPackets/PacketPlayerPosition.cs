@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FugamUtil.Identifier;
 using FugamUtil.Interface;
 
 namespace FugamUtil.Packets.SubPackets
@@ -13,7 +14,7 @@ namespace FugamUtil.Packets.SubPackets
         public int X { get; }
         public int Y { get; }
 
-        public PacketPlayerPosition(int id,int x, int y) : base(id)
+        public PacketPlayerPosition(FugamID id,int x, int y) : base(id)
         {
             X = x;
             Y = y;
@@ -26,7 +27,7 @@ namespace FugamUtil.Packets.SubPackets
 
         public override void HandleClientSide(IClient clientInterface)
         {
-            clientInterface.ResponePacketOtherPlayerPosition(this);
+            clientInterface.ResponePacketPlayerPosition(this);
         }
     }
 }

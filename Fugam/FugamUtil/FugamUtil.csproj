@@ -41,14 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Identifier\FugamID.cs" />
     <Compile Include="Interface\IClient.cs" />
     <Compile Include="Interface\IServer.cs" />
     <Compile Include="Packets\Packet.cs" />
+    <Compile Include="Packets\SubPackets\PacketFugamID.cs" />
     <Compile Include="Packets\SubPackets\PacketLevel.cs" />
-    <Compile Include="Packets\SubPackets\PacketLevelReceived.cs" />
-    <Compile Include="Packets\SubPackets\PacketPlayers.cs" />
-    <Compile Include="Packets\SubPackets\PacketOtherPlayersPosition.cs" />
     <Compile Include="Packets\SubPackets\PacketPlayerPosition.cs" />
+    <Compile Include="Packets\SubPackets\PacketPlayers.cs" />
     <Compile Include="ServerIO.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
