@@ -51,6 +51,7 @@
     <Compile Include="Control\GameStateManager.cs" />
     <Compile Include="Levels\Level.cs" />
     <Compile Include="Levels\LevelIO.cs" />
+    <Compile Include="Model\Drawable\Animation.cs" />
     <Compile Include="Model\Drawable\Entity.cs" />
     <Compile Include="Model\Drawable\Player.cs" />
     <Compile Include="Model\Drawable\YourPlayer.cs" />
@@ -116,6 +117,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\titlescreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerreddown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerredleft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerredright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerredup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playeryellowdown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playeryellowleft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playeryellowright.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playeryellowup.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
