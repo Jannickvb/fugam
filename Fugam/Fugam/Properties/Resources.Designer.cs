@@ -100,9 +100,9 @@ namespace Fugam.Properties {
         ///1,1,1,1,1,1,1,1,1,0,0,0,0,0,1,1,
         ///1,1,1,1,1,1,1,1,1,1,1,1,1,1, [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string level_ID1_Col {
+        internal static string Level_ID1_Col {
             get {
-                return ResourceManager.GetString("level_ID1_Col", resourceCulture);
+                return ResourceManager.GetString("Level_ID1_Col", resourceCulture);
             }
         }
         
