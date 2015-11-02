@@ -11,12 +11,12 @@ namespace Fugam.Levels.Tile
         public const int Size = 32;
         private readonly Bitmap _tile;
 
-        public Tile(bool solid, int x, int y, int id)
+        public Tile(bool solid, int x, int y, string id)
         {
             Solid = solid;
             X = x;
             Y = y;
-            Id = id - 1;
+            Id = int.Parse(id) - 1;
             Bitmap tileset = Properties.Resources.tileset;
             if (Id > 0)
             {

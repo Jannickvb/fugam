@@ -38,12 +38,12 @@ namespace Fugam.Levels
             //Console.WriteLine(Directory.Exists(DirectoryPath));
         }
 
-        public static int[,] GetLevel(string levelId)
+        public static string[,] GetLevel(string levelId)
         {
             //Console.WriteLine("File: "+File.Exists(Path.Combine(DirectoryPath, levelId + ".txt")));
 
             int arrayWidth, arrayHeight;
-            int[,] tilemap = null;
+            string[,] tilemap = null;
             StreamReader reader = null;
 
             try
@@ -51,7 +51,7 @@ namespace Fugam.Levels
                 reader = new StreamReader(Path.Combine(DirectoryPath, levelId + ".txt"));
                 arrayWidth = int.Parse(reader.ReadLine());
                 arrayHeight = int.Parse(reader.ReadLine());
-                tilemap = new int[arrayHeight,arrayWidth];
+                tilemap = new string[arrayHeight,arrayWidth];
                 int row = 0;
                 string text;
 
@@ -62,7 +62,7 @@ namespace Fugam.Levels
                     {
                         string[] tileValues = text.Split(',');
                         for(int col = 0; col < arrayWidth;col++)
-                            tilemap[row,col] = int.Parse(tileValues[col]);
+                            tilemap[row,col] = tileValues[col];
                         row++;
                     }
                 }

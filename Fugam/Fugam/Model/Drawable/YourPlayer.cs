@@ -9,7 +9,7 @@ using FugamUtil.Identifier;
 
 namespace Fugam.Model.Drawable
 {
-    class YourPlayer : Player
+    public class YourPlayer : Player
     {
         public bool isMoving { get; set; }
 

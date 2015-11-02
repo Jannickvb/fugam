@@ -76,11 +76,13 @@ namespace Fugam.Model
             //    Console.WriteLine(gsm.FugamId + "\twaiting for packet\t"+DateTime.Now);
             //}
             ServerIO.Recieve(gsm.Client.GetStream()).HandleClientSide(this);
+            if (_otherPlayers != null && player != null)
+            {
+                _level.CheckTriggers(player,_otherPlayers);
+            }
             //Console.WriteLine(gsm.FugamId + "\tpacket received\t" + DateTime.Now);
         }
-
-      
-
+        
         public override void draw(Graphics g)
         {
             _level?.Draw(g);
