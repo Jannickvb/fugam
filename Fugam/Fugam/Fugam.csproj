@@ -59,8 +59,6 @@
     <Compile Include="Model\Gamestates\GameState.cs" />
     <Compile Include="Model\Gamestates\Level1.cs" />
     <Compile Include="Control\ServerConnection.cs" />
-    <Compile Include="Model\InputHandling\InputHandler.cs" />
-    <Compile Include="Model\InputHandling\Keys.cs" />
     <Compile Include="Levels\Tile\Obstacle.cs" />
     <Compile Include="Levels\Tile\Tile.cs" />
     <Compile Include="Levels\Tile\TileMap.cs" />
@@ -144,6 +142,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Level_ID1_Col.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerred.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playerblue.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

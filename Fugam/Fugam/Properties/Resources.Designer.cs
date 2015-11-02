@@ -86,9 +86,9 @@ namespace Fugam.Properties {
         ///16
         ///1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
         ///1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-        ///1,1,0,1,0,0,0,0,0,0,1,0,1,1,1,1,
-        ///1,1,0,1,0,0,0,0,0,0,1,1,1,1,1,1,
-        ///1,1,0,1,0,0,0,0,0,0,1,1,1,1,1,1,
+        ///1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,
+        ///1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,
+        ///1,1,1,1,0,0,0,0,0,0,1,1,1,1,1,1,
         ///1,1,1,1,1,0,1,1,1,0,0,0,0,0,1,1,
         ///1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,
         ///1,1,1,1,1,0,1,1,1,0,1,1,1,1,1,1,
@@ -103,6 +103,26 @@ namespace Fugam.Properties {
         internal static string Level_ID1_Col {
             get {
                 return ResourceManager.GetString("Level_ID1_Col", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playerblue {
+            get {
+                object obj = ResourceManager.GetObject("playerblue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap playerred {
+            get {
+                object obj = ResourceManager.GetObject("playerred", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

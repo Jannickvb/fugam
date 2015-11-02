@@ -80,6 +80,11 @@ namespace Fugam.Model
             if (_otherPlayers != null && player != null)
             {
                 _level.CheckTriggers(player,_otherPlayers);
+                foreach(Player player in _otherPlayers)
+                {
+                    player.Update();
+                }
+                player.Update();
             }
             //Console.WriteLine(gsm.FugamId + "\tpacket received\t" + DateTime.Now);
         }

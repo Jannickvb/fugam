@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Fugam.Model.Drawable
@@ -38,13 +39,7 @@ namespace Fugam.Model.Drawable
             if (delay == -1)
                 return;
 
-            long elapsed = (DateTime.Now.ToFileTime() - startTime) / 1000000;
-
-            if(elapsed> delay)
-            {
-                spriteIndex++;
-                startTime = DateTime.Now.ToFileTime();
-            }
+            spriteIndex++;
 
             if(spriteIndex == subimages.Length)
             {
@@ -52,6 +47,7 @@ namespace Fugam.Model.Drawable
                 hasPlayedOnce = true;
             }
 
+            Thread.Sleep((int)delay);
         }
 
         public Bitmap GetCurrentImage()

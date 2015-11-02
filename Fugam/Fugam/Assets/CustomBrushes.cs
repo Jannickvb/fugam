@@ -11,6 +11,6 @@ namespace Fugam.Assets
     {
         public static Brush BRUSH_MENU_HIGHLIGHT = new SolidBrush(Color.Red);
         public static Brush BRUSH_MENU_REGULAR = new SolidBrush(Color.White);
+        public static Brush BRUSH_BACKGROUND = new SolidBrush(Color.FromArgb(13,7,17));
     }
-
 }

@@ -26,7 +26,7 @@ namespace Fugam.View
 
         public void Init()
         {
-            _background =  new SolidBrush(Color.White);
+            _background = Fugam.Assets.CustomBrushes.BRUSH_BACKGROUND;
             
             _drawThread = new Thread(new ThreadStart(Draw));
             _drawThread.Start();

@@ -27,7 +27,7 @@ namespace Fugam.Model.Drawable
 
         public override void Update()
         {
-
+            base.Update();
         }
 
         //true == x, false == y
