@@ -110,7 +110,7 @@ namespace Fugam.Model
 
         public override void ReceivePacketPlayers(PacketPlayers pp)
         {
-            player = new YourPlayer(gsm.FugamId,_level.TileMap);
+            player = new YourPlayer(gsm.FugamId,_level.TileMap,_level.CollisonMap);
 
             _otherPlayers = new Player[pp.playerIDs.Count-1];
 

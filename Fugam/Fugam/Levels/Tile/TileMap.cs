@@ -10,27 +10,29 @@ namespace Fugam.Levels.Tile
     {
         private string[,] tilemap;
         private Tile[,] tiles;
-        public int y { get; }
-        public int x { get; }
+        public int height { get; }
+        public int width { get; }
         public bool IsCollisonMap { get; }
+        public List<Trigger> Triggers { get; } 
+        public List<Obstacle> Obstacles { get; set; } 
 
         public TileMap(string[,] tilemap,bool collisonMap)
         {
             this.tilemap = tilemap;
-            y = tilemap.GetLength(0);
-            x = tilemap.GetLength(1);
-            tiles = new Tile[x,y];
+            height = tilemap.GetLength(0);
+            width = tilemap.GetLength(1);
+            tiles = new Tile[width,height];
             IsCollisonMap = collisonMap;
+            Triggers = new List<Trigger>();
+            Obstacles = new List<Obstacle>();
+            LoadTiles();
         }
 
-        public List<Trigger> LoadTiles()
+        private void LoadTiles()
         {
-            List<Trigger> triggers = new List<Trigger>();
-            List<Obstacle> obstacles = new List<Obstacle>();
-
-            for (int i = 0; i < y; i++)
+            for (int i = 0; i < height; i++)
             {
-                for (int k = 0; k < x; k++)
+                for (int k = 0; k < width; k++)
                 {
                     if (IsCollisonMap)
                     {
@@ -57,10 +59,10 @@ namespace Fugam.Levels.Tile
                             if (splitId[0] == "42")//obstacle
                             {
                                 Obstacle ob = new Obstacle(i * Tile.Size, k * Tile.Size, splitId[1]);
-                                obstacles.Add(ob);
+                                Obstacles.Add(ob);
                                 tiles[k, i] = ob;
 
-                                foreach (Trigger t in triggers.Where(t => t.Obstacle == null).Where(t => t.TriggerID == ob.ObstracleID))
+                                foreach (Trigger t in Triggers.Where(t => t.Obstacle == null).Where(t => t.TriggerID == ob.ObstracleID))
                                 {
                                     t.Obstacle = ob;
                                     break;
@@ -69,10 +71,10 @@ namespace Fugam.Levels.Tile
                             if (splitId[0] == "157")//trigger
                             {
                                 Trigger t = new Trigger(i * Tile.Size, k * Tile.Size, splitId[1]);
-                                triggers.Add(t);
+                                Triggers.Add(t);
                                 tiles[k, i] = t;
 
-                                foreach (Obstacle ob in obstacles.Where(ob => ob.ObstracleID == t.TriggerID))
+                                foreach (Obstacle ob in Obstacles.Where(ob => ob.ObstracleID == t.TriggerID))
                                 {
                                     t.Obstacle = ob;
                                     break;
@@ -86,16 +88,15 @@ namespace Fugam.Levels.Tile
                     }
                 }
             }
-            //foreach (Obstacle ob in obstacles)
+            //foreach (Obstacle ob in Obstacles)
             //{
             //    Console.WriteLine(ob.ToString());
             //}
-            //foreach (Trigger t in triggers)
+            //foreach (Trigger t in Triggers)
             //{
             //    Console.WriteLine(t.ToString()+"\t"+t.Obstacle.ToString()); 
             //    t.Activate();
             //}
-            return triggers;
         }
 
         public Tile[,] getTileMap()

@@ -12,16 +12,14 @@ namespace Fugam.Levels
     {
         public TileMap TileMap { get; }
         public TileMap CollisonMap { get; }
-        public List<Trigger> Triggers { get; }
         private bool[] _triggersActivate;
 
         public Level(string levelId)
         {
             TileMap = new TileMap(LevelIO.GetLevel(levelId),false);
             CollisonMap = new TileMap(LevelIO.GetLevel(levelId+"_Col"),true);
-            Triggers = TileMap.LoadTiles();
-            CollisonMap.LoadTiles();
-            _triggersActivate = new bool[Triggers.Count];
+            CollisonMap.Obstacles = TileMap.Obstacles;
+            _triggersActivate = new bool[TileMap.Triggers.Count];
         }
 
         public void CheckTriggers(YourPlayer player, Player[] otherPlayers)
@@ -33,7 +31,7 @@ namespace Fugam.Levels
 
             for (int i = 0; i < _triggersActivate.Length; i++)
             {
-                _triggersActivate[i] = Triggers.ElementAt(i).PlayerOnTile(player);
+                _triggersActivate[i] = TileMap.Triggers.ElementAt(i).PlayerOnTile(player);
                 if (_triggersActivate[i])
                 {
                     break;
@@ -45,7 +43,7 @@ namespace Fugam.Levels
                 {
                     if (!_triggersActivate[i])
                     {
-                        _triggersActivate[i] = Triggers.ElementAt(i).PlayerOnTile(p);
+                        _triggersActivate[i] = TileMap.Triggers.ElementAt(i).PlayerOnTile(p);
                         if (_triggersActivate[i])
                         {
                             break;
@@ -58,11 +56,11 @@ namespace Fugam.Levels
             {
                 if (_triggersActivate[i])
                 {
-                    Triggers.ElementAt(i).Activate();
+                    TileMap.Triggers.ElementAt(i).Activate();
                 }
                 else
                 {
-                    Triggers.ElementAt(i).DeActivate();
+                    TileMap.Triggers.ElementAt(i).DeActivate();
                 }
             }
         }
