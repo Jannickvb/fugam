@@ -34,14 +34,14 @@ namespace Fugam.Levels.Tile
                 {
                     if (IsCollisonMap)
                     {
-                        //if (tilemap[k,i] != 0)
-                        //{
-                        //    tiles[k, i] = new Tile(true, i * Tile.Size, k * Tile.Size, tilemap[k,i]);
-                        //}
-                        //else
-                        //{
-                        //    tiles[k, i] = new Tile(false, i * Tile.Size, k * Tile.Size, tilemap[k,i]);
-                        //}
+                        if (int.Parse(tilemap[k, i]) != 0)
+                        {
+                            tiles[k, i] = new Tile(true, i * Tile.Size, k * Tile.Size, tilemap[k, i]);
+                        }
+                        else
+                        {
+                            tiles[k, i] = new Tile(false, i * Tile.Size, k * Tile.Size, tilemap[k, i]);
+                        }
                     }
                     else
                     {

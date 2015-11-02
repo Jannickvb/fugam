@@ -11,13 +11,16 @@ namespace Fugam.Levels
     public class Level
     {
         public TileMap TileMap { get; }
+        public TileMap CollisonMap { get; }
         public List<Trigger> Triggers { get; }
         private bool[] _triggersActivate;
 
-        public Level(TileMap tm)
+        public Level(string levelId)
         {
-            TileMap = tm;
-            Triggers = tm.LoadTiles();
+            TileMap = new TileMap(LevelIO.GetLevel(levelId),false);
+            CollisonMap = new TileMap(LevelIO.GetLevel(levelId+"_Col"),true);
+            Triggers = TileMap.LoadTiles();
+            CollisonMap.LoadTiles();
             _triggersActivate = new bool[Triggers.Count];
         }
 

@@ -61,8 +61,10 @@ namespace Fugam.Levels
                     if (row < arrayHeight)
                     {
                         string[] tileValues = text.Split(',');
-                        for(int col = 0; col < arrayWidth;col++)
-                            tilemap[row,col] = tileValues[col];
+                        for (int col = 0; col < arrayWidth; col++)
+                        {
+                            tilemap[row, col] = tileValues[col];
+                        }
                         row++;
                     }
                 }

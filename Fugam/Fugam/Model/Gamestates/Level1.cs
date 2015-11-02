@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -104,7 +105,7 @@ namespace Fugam.Model
 
         public override void ReceivePacketLevel(PacketLevel pl)
         {
-            _level = new Level(new TileMap(LevelIO.GetLevel(pl.NewLevelId), false));
+            _level = new Level(pl.NewLevelId);
         }
 
         public override void ReceivePacketPlayers(PacketPlayers pp)
