@@ -9,7 +9,7 @@ namespace Fugam.Levels.Tile
         public int Y { get; }
         public int Id { get; }
         public const int Size = 32;
-        private Bitmap tile;
+        private readonly Bitmap _tile;
 
         public Tile(bool solid, int x, int y, int id)
         {
@@ -20,16 +20,16 @@ namespace Fugam.Levels.Tile
             Bitmap tileset = Properties.Resources.tileset;
             if (Id > 0)
             {
-                tile = tileset.Clone(new Rectangle((Id * Size) % tileset.Width, ((Id * Size) / tileset.Width) * Size, Size, Size), tileset.PixelFormat);
+                _tile = tileset.Clone(new Rectangle((Id * Size) % tileset.Width, ((Id * Size) / tileset.Width) * Size, Size, Size), tileset.PixelFormat);
             }
             
         }
 
         public virtual void DrawTile(Graphics g)
         {
-            if (tile != null)
+            if (_tile != null)
             {
-                g.DrawImage(tile,X,Y);
+                g.DrawImage(_tile,X,Y);
             }
         }
     }

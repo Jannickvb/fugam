@@ -22,6 +22,16 @@ namespace Fugam.Levels
                     TileMap.getTileMap()[i, j].DrawTile(g);
                 }
             }
+
+            for (int i = 0; i < TileMap.getTileMap().GetLength(0); i++)
+            {
+                g.DrawLine(Pens.Blue, 0, i * Tile.Tile.Size, 800, i * Tile.Tile.Size);
+                
+            }
+            for (int j = 0; j < TileMap.getTileMap().GetLength(1); j++)
+            {
+                g.DrawLine(Pens.Blue, j * Tile.Tile.Size, 0, j * Tile.Tile.Size, 600);
+            }
         }
     }
 }
