@@ -1,0 +1,4 @@
+Fugam is een cooperatief spel, waarbij je elkaar moet helpen om verder in het spel te komen.
+Helaas zijn op dit moment niet meerdere levels beschikbaar.
+Om een spel te kunnen spelen moet u eerst een server aanzetten, en daarna 2 client.
+Hierdoor zullen de clients het level inladen via een file en kan u het level gaan spelen.
