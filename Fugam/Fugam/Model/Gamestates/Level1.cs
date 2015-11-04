@@ -80,9 +80,9 @@ namespace Fugam.Model
             if (_otherPlayers != null && player != null)
             {
                 _level.CheckTriggers(player,_otherPlayers);
-                foreach(Player player in _otherPlayers)
+                foreach(Player otherplayer in _otherPlayers)
                 {
-                    player.Update();
+                    otherplayer.Update();
                 }
                 player.Update();
             }

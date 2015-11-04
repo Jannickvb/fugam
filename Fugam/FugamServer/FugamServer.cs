@@ -10,7 +10,7 @@ using FugamUtil;
 
 namespace FugamServer
 {
-    class FugamServer
+    public class FugamServer
     {
         static void Main(string[] args)
         {

@@ -12,7 +12,7 @@ using FugamUtil.Packets.SubPackets;
 
 namespace FugamServer
 {
-    class ClientHandler
+    public class ClientHandler
     {
         public FugamID FugamId { get; }
         private readonly GameHandler _game;

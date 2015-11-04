@@ -34,14 +34,11 @@ namespace Fugam.Levels
                 DirectoryPath += (items[i] + @"\");
             }
             DirectoryPath = Path.Combine(DirectoryPath, "Resources");
-            //Console.WriteLine("Path: {0}",DirectoryPath);
-            //Console.WriteLine(Directory.Exists(DirectoryPath));
         }
 
         public static string[,] GetLevel(string levelId)
         {
-            //Console.WriteLine("File: "+File.Exists(Path.Combine(DirectoryPath, levelId + ".txt")));
-
+            
             int arrayWidth, arrayHeight;
             string[,] tilemap = null;
             StreamReader reader = null;

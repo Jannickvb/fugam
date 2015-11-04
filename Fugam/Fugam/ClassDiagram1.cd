@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Fugam.Assets.CustomBrushes" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBA=</HashCode>
+      <FileName>Assets\CustomBrushes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Control.GameStateManager" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABQAABAAAAAAAAAYBACEgAAQAACAAAAAAAACgAAQ=</HashCode>
+      <FileName>Control\GameStateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.ServerConnection" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Control\ServerConnection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Program" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.FugamClientForm" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACgAAgAACACAAAACAIAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>View\FugamClientForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.MainPanel" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>View\MainPanel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Levels.Level" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQgAAAAAgAAAAAAAAAAAAAAgAAAACAAA=</HashCode>
+      <FileName>Levels\Level.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Levels.LevelIO" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAACIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Levels\LevelIO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Levels.Tile.Obstacle" Collapsed="true">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABEAAAIAAAAAAAgAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Levels\Tile\Obstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Levels.Tile.Tile" Collapsed="true">
+    <Position X="10" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAABAgAAAAAAAAAAAAAAAAQAIAAAAAAAAYAA=</HashCode>
+      <FileName>Levels\Tile\Tile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Levels.Tile.TileMap" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAQAQAAAAAAAigAAAIAAAAAAAAABAAE=</HashCode>
+      <FileName>Levels\Tile\TileMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Levels.Tile.Trigger" Collapsed="true">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAQBAAABEAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Levels\Tile\Trigger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Model.Drawable.Animation" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAAQBAAAAgAAAgAEgAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Drawable\Animation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Model.Drawable.Player" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAgAAAAEAAIAAAAAAAAAAAABiAAAAAAA=</HashCode>
+      <FileName>Model\Drawable\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Model.Drawable.YourPlayer" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAIAAAAAAAAAAAAAAAAAAAAQAACACACDAAAAAAI=</HashCode>
+      <FileName>Model\Drawable\YourPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Model.Entity" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAAAAgAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Model\Drawable\Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Model.BeginState" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAACAAAAAIQAAAAAAAAAAIAAEAAAAAEIAA=</HashCode>
+      <FileName>Model\Gamestates\BeginState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Model.GameState" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAAAAAAAAAIAAAAAAAgAAAIAAEABAAAkAAA=</HashCode>
+      <FileName>Model\Gamestates\GameState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Fugam.Model.Level1" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAAAAAAAAAAAIAAQAAAAwAAAIBAEAAAAAkAAA=</HashCode>
+      <FileName>Model\Gamestates\Level1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Properties.Resources" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAFAAAAABAAkAAAgBEQQAAQAACAAAIEAIAAAAQIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.Properties.Settings" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Fugam.View.GEngine" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAAAAAAAAAAAAAKAACAQIAAAA=</HashCode>
+      <FileName>View\GEngine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Fugam.Control.State" Collapsed="true">
+    <Position X="13" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAABAAAAAAAAAAA=</HashCode>
+      <FileName>Control\GameStateManager.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
